@@ -1,15 +1,19 @@
-# yc_app_native
+# YC App Native Plugin
 
-A new yellow class plugin
+This plugin provides access to custom native functionalities required by `Yellow Class` App.
 
-## Getting Started
+## Installing
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
+To use this plugin:
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+Add the following to your `pubspec.yaml` file:
+
+```yaml
+dependencies:
+  yc_app_native:
+    git:
+      url: https://github.com/yellowclass/yc_app_native.git
+      ref: master
+```
 
