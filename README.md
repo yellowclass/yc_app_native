@@ -1,4 +1,4 @@
-# yc_native
+# yc_app_native
 
 A new yellow class plugin
 
