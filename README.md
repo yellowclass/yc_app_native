@@ -16,3 +16,20 @@ dependencies:
       ref: master
 ```
 
+## Features
+- shareMediaIntent
+- launchYCShare
+- launchSingleApp
+- initCustomShare
+- startForegroundService
+- getOngoingNotifTappedPayload
+- stopForegroundService
+- setOrientation
+- checkForFakeUpdate
+- startFakeFlexibleUpdate
+- completeFakeFlexibleUpdate
+- checkForInAppUpdate
+- performImmediateUpdate
+- startFlexibleUpdate
+- completeFlexibleUpdate
+
