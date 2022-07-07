@@ -6,7 +6,6 @@ This plugin provides access to custom native functionalities required by `Yellow
 
 To use this plugin:
 
-
 Add the following to your `pubspec.yaml` file:
 
 ```yaml
