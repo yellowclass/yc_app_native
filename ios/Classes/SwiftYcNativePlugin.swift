@@ -18,7 +18,7 @@ public class SwiftYcNativePlugin: NSObject, FlutterPlugin {
     }
     
   public static func register(with registrar: FlutterPluginRegistrar) {
-    let channel = FlutterMethodChannel(name: "yc_native", binaryMessenger: registrar.messenger())
+    let channel = FlutterMethodChannel(name: "yc_app_native", binaryMessenger: registrar.messenger())
       
     let viewController: UIViewController =   (UIApplication.shared.delegate?.window??.rootViewController)!;
       
