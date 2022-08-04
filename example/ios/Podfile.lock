@@ -1,22 +1,28 @@
 PODS:
   - Flutter (1.0.0)
-  - yc_native (0.0.1):
+  - image_picker_ios (0.0.1):
+    - Flutter
+  - yc_app_native (0.0.1):
     - Flutter
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
-  - yc_native (from `.symlinks/plugins/yc_native/ios`)
+  - image_picker_ios (from `.symlinks/plugins/image_picker_ios/ios`)
+  - yc_app_native (from `.symlinks/plugins/yc_app_native/ios`)
 
 EXTERNAL SOURCES:
   Flutter:
     :path: Flutter
-  yc_native:
-    :path: ".symlinks/plugins/yc_native/ios"
+  image_picker_ios:
+    :path: ".symlinks/plugins/image_picker_ios/ios"
+  yc_app_native:
+    :path: ".symlinks/plugins/yc_app_native/ios"
 
 SPEC CHECKSUMS:
   Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
-  yc_native: c63bbb2ac80f876ae796b3ea25504c81c46416a1
+  image_picker_ios: b786a5dcf033a8336a657191401bfdf12017dabb
+  yc_app_native: 2a86ea9e13450fee790696805aab4fe1f4a2fb54
 
 PODFILE CHECKSUM: aafe91acc616949ddb318b77800a7f51bffa2a4c
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.11.3

@@ -3,7 +3,7 @@
 # Run `pod lib lint yc_native.podspec` to validate before publishing.
 #
 Pod::Spec.new do |s|
-  s.name             = 'yc_native'
+  s.name             = 'yc_app_native'
   s.version          = '0.0.1'
   s.summary          = 'A new yellow class plugin'
   s.description      = <<-DESC
