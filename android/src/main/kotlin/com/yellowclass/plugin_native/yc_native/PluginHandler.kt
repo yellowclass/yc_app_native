@@ -91,7 +91,7 @@ open class PluginHandler {
         val pendingIntent: PendingIntent = PendingIntent.getBroadcast(
             activity,
             1, Intent(activity, ShareTapReceiver::class.java),
-            PendingIntent.FLAG_UPDATE_CURRENT
+            PendingIntent.FLAG_IMMUTABLE
         )
 
         intent.putExtra(Intent.EXTRA_TEXT, mContentText)
