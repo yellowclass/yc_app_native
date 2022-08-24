@@ -80,7 +80,7 @@ class NotificationHelper {
             action = DISMISS_NOTIFICATION_CLICK_ACTION
         }
 
-        val flags = PendingIntent.FLAG_UPDATE_CURRENT
+        val flags = PendingIntent.FLAG_IMMUTABLE
         val pendingIntent = PendingIntent.getActivity(context, requestCode, intent, flags)
         val stopPendingIntent = PendingIntent.getBroadcast(context, requestCode,stopIntent, flags)
         val notificationBuilder = NotificationCompat.Builder(context, channelId)
