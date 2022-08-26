@@ -13,7 +13,9 @@ import 'package:yc_app_native/model/yc_share_resp.dart';
 import 'model/in_app_model_model.dart';
 
 class YcAppNative {
-  static const MethodChannel _channel = MethodChannel('yc_native');
+  static const MethodChannel _channel = MethodChannel(
+    'com.yellowclass/yc_app_native',
+  );
 
   static Future<PluginResponse<String>> shareMediaIntent({
     String imgLocalPath = "",
@@ -26,17 +28,9 @@ class YcAppNative {
 
     final data = await _channel.invokeMethod('shareMediaIntent', _methodParams);
     if (data != null) {
-      return PluginResponse(
-        isSuccess: true,
-        result: "Shared",
-        msg: "",
-      );
+      return PluginResponse.success("Shared");
     } else {
-      return PluginResponse(
-        isSuccess: false,
-        result: "",
-        msg: "Error",
-      );
+      return PluginResponse.error("Error Found");
     }
   }
 
@@ -105,8 +99,10 @@ class YcAppNative {
       "mimeType": mimeType.shareableMime(),
     };
 
-    final String? data =
-        await _channel.invokeMethod('launchSingleApp', _methodParams);
+    final String? data = await _channel.invokeMethod(
+      'launchSingleApp',
+      _methodParams,
+    );
     if (data != null) {
       return PluginResponse.success(YCShareResponse.fromMap(data));
     } else {
@@ -120,11 +116,7 @@ class YcAppNative {
     bool isFBStoryEnabled = false,
   }) async {
     if (!Platform.isAndroid) {
-      return PluginResponse(
-        isSuccess: false,
-        result: "",
-        msg: "Platform is not android",
-      );
+      return PluginResponse.error("Platform is not android");
     }
 
     final initParams = packages.map((e) => e.toMap()).toList();
@@ -138,17 +130,9 @@ class YcAppNative {
     String? data = await _channel.invokeMethod('initYCShare', finalParam);
 
     if (data != null) {
-      return PluginResponse(
-        isSuccess: true,
-        result: data,
-        msg: "",
-      );
+      return PluginResponse.success(data);
     } else {
-      return PluginResponse(
-        isSuccess: false,
-        result: "",
-        msg: "No Payload available",
-      );
+      return PluginResponse.error("No Payload available");
     }
   }
 
@@ -206,11 +190,14 @@ class YcAppNative {
 
     if (!Platform.isAndroid) {
       return PluginResponse.error(
-          "Not Configured for other platforms except Android");
+        "Not Configured for other platforms except Android",
+      );
     }
 
-    final bool? data =
-        await _channel.invokeMethod('showNotification', _methodParms);
+    final bool? data = await _channel.invokeMethod(
+      'showNotification',
+      _methodParms,
+    );
     if (data != false) {
       return PluginResponse.success("Service Started");
     } else {
@@ -227,8 +214,9 @@ class YcAppNative {
     });
     if (data != null) {
       try {
-        Map<String, dynamic> payloadData =
-            Map<String, dynamic>.from(jsonDecode(jsonEncode(data)));
+        Map<String, dynamic> payloadData = Map<String, dynamic>.from(
+          jsonDecode(jsonEncode(data)),
+        );
         return PluginResponse.success(payloadData);
       } catch (e) {
         return PluginResponse.error("Failed");
