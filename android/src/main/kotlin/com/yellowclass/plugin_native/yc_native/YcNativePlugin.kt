@@ -15,7 +15,7 @@ import io.flutter.plugin.common.MethodChannel.Result
 class YcNativePlugin : ContextAwareFlutterPlugin() {
 
 
-    override val pluginName: String = "yc_native"
+    override val pluginName: String = "com.yellowclass/yc_app_native"
     private lateinit var channel: MethodChannel
     private val _pluginHandler = PluginHandler()
     val inAppUpdateHelper = InAppUpdateHelper()
