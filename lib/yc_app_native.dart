@@ -394,4 +394,22 @@ class YcAppNative {
       );
     }
   }
+
+  static Future<PluginResponse<String>> getNetworkOperatorName() async {
+    if (!Platform.isAndroid) {
+      return PluginResponse.error(
+        "Not Configured for other platforms except Android",
+      );
+    }
+
+    final result = await _channel.invokeMethod('getNetworkOperatorName');
+    if (result["status"]) {
+      return PluginResponse.success(result["data"]);
+    } else {
+      return PluginResponse.error(
+        result["msg"],
+        data: result["responseCode"],
+      );
+    }
+  }
 }
