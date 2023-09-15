@@ -1,7 +1,7 @@
 package com.yellowclass.plugin_native.yc_native
 
 import android.app.Activity
-`import android.content.Context
+import android.content.Context
 import android.os.Build
 import android.os.Bundle
 import android.telephony.TelephonyManager
@@ -10,7 +10,6 @@ import androidx.annotation.RequiresApi
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
-import io.flutter.plugin.common.MethodChannel.Result
 
 
 /** YcNativePlugin */
@@ -102,7 +101,15 @@ class YcNativePlugin : ContextAwareFlutterPlugin() {
                 )
             }
 
-            "getNetworkOperatorName" -> activity?.let { getNetworkOperatorName(it, result) }
+            "getNetworkOperatorName" -> activity?.let {
+                val networkOperatorName = getNetworkOperatorName(it)
+                result.success(
+                    mapOf(
+                        "status" to true, "data" to networkOperatorName
+                    )
+                )
+            }
+
             else -> result.notImplemented()
         }
 
@@ -130,19 +137,15 @@ class YcNativePlugin : ContextAwareFlutterPlugin() {
     }
 
 
-    private fun getNetworkOperatorName(activity: Activity, result: Result) {
+    private fun getNetworkOperatorName(activity: Activity): String {
         try {
             val telephonyManager =
                 activity.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
             print(">>>> Network Operator Name:${telephonyManager.networkOperatorName}")
-            result.success(
-                mapOf(
-                    "status" to true, "data" to telephonyManager.networkOperatorName
-                )
-            )
+            return telephonyManager.networkOperatorName
         } catch (e: Exception) {
             print(e);
-            result.success("");
+            return ""
         }
     }
 
