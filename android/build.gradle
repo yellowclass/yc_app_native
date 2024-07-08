@@ -58,8 +58,8 @@ dependencies {
     //The Play Core KTX library is optional and provides Kotlin coroutines versions for the asynchronous method calls in the regular Play Core Library, as well as other useful extensions that make using the APIs more idiomatic from Kotlin.
 //    implementation 'com.google.android.play:core-ktx:1.8.1'
 
-    implementation 'com.google.android.play:app-update:2.1.0'
-    implementation 'com.google.android.play:app-update-ktx:2.1.0'
+//    implementation 'com.google.android.play:app-update:2.1.0'
+//    implementation 'com.google.android.play:app-update-ktx:2.1.0'
 
     annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
 }
